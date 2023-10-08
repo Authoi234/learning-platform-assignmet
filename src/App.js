@@ -19,7 +19,7 @@ function App() {
         {
           path: '/courses',
           element: <Courses></Courses>,
-          loader: () => fetch('http://localhost:5000/courses')
+          loader: () => fetch('https://learning-platform-server-assignment-lsrgqm0c7.vercel.app/courses')
         },
         {
           path: '/courses/:id',
