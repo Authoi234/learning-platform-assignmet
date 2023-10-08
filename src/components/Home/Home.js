@@ -9,9 +9,9 @@ const Home = () => {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                        <p className="mb-5">Welcome to out computer programming educational platform. I want, you can know something extra from us</p>
-                        <button className="btn btn-primary"><Link to={'/courses'} className='decoration-0'>See Our Courses</Link></button>
+                        <h1 className="mb-5 text-5xl font-bold">Authoi Education</h1>
+                        <p className="mb-5">Welcome to our computer programming educational platform. I want, you can know something extra from us</p>
+                        <button className="btn btn-danger text-white decoration-0"><Link to={'/courses'} className='text-decoration-none text-white'>See Our Courses</Link></button>
                     </div>
                 </div>
             </div>

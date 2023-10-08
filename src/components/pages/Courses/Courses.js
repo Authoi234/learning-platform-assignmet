@@ -8,9 +8,9 @@ const Courses = () => {
     console.log(courses);
     return (
         <div>
-            <Row xs={1} md={2} className="g-4">
+            <div className="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-0">
                 {courses.map(singleCourse => <SingleCourse key={singleCourse.id} course={singleCourse}></SingleCourse>)}
-            </Row>
+            </div>
         </div>
     );
 };
