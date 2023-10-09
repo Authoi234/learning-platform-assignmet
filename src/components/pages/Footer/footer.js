@@ -4,7 +4,7 @@ const footer = () => {
     return (
         <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
             <nav className="grid grid-flow-col gap-4">
-                <button disabled><a className="link text-black-50">About us</a></button>
+                <button disabled><span className="link text-black-50">About us</span></button>
                 <button disabled><span title='We dont want that you contact with us' className="link text-black-50">Contact</span></button>
                 <button disabled><span title='We have no job for you' className="link text-black-50">Jobs</span></button>
                 <button disabled><span title='We have no press kit now' className="link text-black-50">Press kit</span></button>

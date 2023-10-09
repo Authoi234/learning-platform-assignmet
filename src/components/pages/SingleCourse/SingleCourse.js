@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const SingleCourse = ({ course }) => {
     return (
@@ -13,7 +14,7 @@ const SingleCourse = ({ course }) => {
                         {course.about}
                         </Card.Text>
                     </Card.Body>
-                    <Card.ImgOverlay><button className="btn glass text-white hover:drop-shadow-xl">Go To This Page</button></Card.ImgOverlay>           
+                    <Card.ImgOverlay><Link to={`/courses/${course.id}`}><button className="btn glass text-white hover:drop-shadow-xl">Go To This Page</button></Link></Card.ImgOverlay>           
                 </Card>
             </Col>
         </div>

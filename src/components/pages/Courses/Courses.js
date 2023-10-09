@@ -1,5 +1,4 @@
 import React from 'react';
-import { Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import SingleCourse from '../SingleCourse/SingleCourse';
 
