@@ -14,7 +14,7 @@ const SingleCourse = ({ course }) => {
                         {course.about}
                         </Card.Text>
                     </Card.Body>
-                    <Card.ImgOverlay><Link to={`/courses/${course.id}`}></Link></Card.ImgOverlay>           
+                    <Card.ImgOverlay><Link to={`/courses/${course.id}`} className='btn glass text-white hover:drop-shadow-xl'>Go to This Page</Link></Card.ImgOverlay>           
                 </Card>
             </Col>
         </div>
