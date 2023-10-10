@@ -7,7 +7,7 @@ const Courses = () => {
     console.log(courses);
     return (
         <div>
-            <div className="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-0">
+            <div className="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-0 bg-black py-16">
                 {courses.map(singleCourse => <SingleCourse key={singleCourse.id} course={singleCourse}></SingleCourse>)}
             </div>
         </div>

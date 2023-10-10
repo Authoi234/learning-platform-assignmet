@@ -5,7 +5,7 @@ const SingleCourseDetail = () => {
     const courseDetail = useLoaderData();
     console.log(courseDetail);
     return (
-        <div className='container'>
+        <div className='container py-20'>
             <div className="navbar bg-base-100">
                 <h1 className="btn-ghost normal-case text-5xl">{courseDetail.title}</h1>
             </div>
