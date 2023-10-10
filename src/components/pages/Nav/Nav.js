@@ -8,7 +8,7 @@ const NavBar = () => {
             <Navbar collapseOnSelect expand="lg" style={{backdropFilter: 'blur(20px)'}} bg='light' className="bg-transparent fixed-top">
                 <Container>
                     <img width={'8%'} src={require('../../../assets/download1.png')} fluid alt='' />
-                    <Navbar.Brand href="#home" className='text-light'>Authoi Education</Navbar.Brand>
+                    <Navbar.Brand className='text-light' href='https://learning-platform-assignmemt.web.app'>Authoi Education</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto align-items-center">
