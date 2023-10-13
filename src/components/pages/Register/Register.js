@@ -2,12 +2,13 @@ import React, { useContext, useState } from 'react';
 import { Container, FloatingLabel, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate('/');
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -18,9 +19,10 @@ const Register = () => {
         const name = form.name.value;
         const photoURL = form.photoURL.value;
         console.log(password, name, photoURL, email);
-
+        
         createUser(email, password)
-            .then(res => {
+        .then(res => {
+                handleUpdateUserProfile(name, photoURL);
                 const user = res.user;
                 console.log(user);
                 setError('');
@@ -31,6 +33,17 @@ const Register = () => {
                 setError(e.message);
             });
 
+    }
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        
+        updateUserProfile(profile)
+            .then(() => {console.log()})
+            .catch((err) => console.error(err))
     }
 
     return (
