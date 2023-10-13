@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { Container, FloatingLabel, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Register = () => {
     const [error, setError] = useState('');
+    const navigate = useNavigate('/');
 
     const { createUser } = useContext(AuthContext);
 
@@ -19,14 +20,14 @@ const Register = () => {
         console.log(password, name, photoURL, email);
 
         createUser(email, password)
-            .then(result => {
-                const user = result.user;
+            .then(res => {
+                const user = res.user;
                 console.log(user);
                 setError('');
                 form.reset();
+                navigate('/')
             })
             .catch(e => {
-                console.error(e);
                 setError(e.message);
             });
 

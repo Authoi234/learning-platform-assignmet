@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWith
 
 export const AuthContext = createContext();
 
+
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
@@ -22,7 +23,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const createUser = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password);
+        return createUserWithEmailAndPassword(auth, email, password);
     }
 
     useEffect(() => {
