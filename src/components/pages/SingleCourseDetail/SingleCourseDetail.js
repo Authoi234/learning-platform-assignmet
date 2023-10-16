@@ -11,9 +11,9 @@ const SingleCourseDetail = () => {
     const options = {
         filename: "Authoi_Education.pdf",
         page: {
-          margin: 20
+            margin: 20
         }
-      };
+    };
 
     const getTargetElement = () => document.getElementById("pdf-page");
 
@@ -77,11 +77,12 @@ const SingleCourseDetail = () => {
                     </div>
                 </div>
             </div>
-            <button className="btn btn-outline-success" type="button">
-                <Link className='position-relative' to={`/checkout/${courseDetail.id}`}>Get Premium Access
+            <hr />
+            <Link className='position-relative text-white' to={`/checkout/${courseDetail.id}`}><button className="btn btn-outline-success" type="button">Get Premium Access</button>
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                     <MdWorkspacePremium></MdWorkspacePremium>
-                </span></Link></button>
+                </span></Link>
+            <hr />
         </div>
     );
 };

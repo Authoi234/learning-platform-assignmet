@@ -11,6 +11,7 @@ import Login from './components/pages/Login/Login';
 import Register from './components/pages/Register/Register';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Checkout from './components/pages/Checkout/Checkout';
+import Blog from './components/pages/Blog/Blog';
 function App() {
   const router = createBrowserRouter([
     {
@@ -40,9 +41,17 @@ function App() {
           element: <Register></Register>
         },
         {
+          path: '/blog',
+          element: <Blog></Blog>
+        },
+        {
           path: '/checkout/:id',
           element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
           loader: ({params}) => fetch(`https://learning-platform-server-assignment-gh9vsm4df.vercel.app/courses/${params.id}`)
+        },
+        {
+          path: '*',
+          element: <div className='text-5xl text-black fw-bolder d-flex align-items-center justify-content-center mt-52'>404. Not Found Anything</div>
         }
       ],
     },

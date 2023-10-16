@@ -21,7 +21,7 @@ const NavBar = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto align-items-center">
                             <Link className="text-decoration-none text-black fs-5 me-3" to={'/courses'}>Courses</Link>
-                            <Link className="text-decoration-none text-black fs-5 me-3" >Blog</Link>
+                            <Link className="text-decoration-none text-black fs-5 me-3" to={'/blog'}>Blog</Link>
                             <Link className="text-decoration-none text-black fs-5 me-3" >FAQ</Link>
                         </Nav>
                         <Nav>
