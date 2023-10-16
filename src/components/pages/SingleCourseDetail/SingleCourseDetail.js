@@ -1,39 +1,30 @@
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
 import { MdWorkspacePremium } from "react-icons/md";
+import generatePDF from "react-to-pdf";
 
 const SingleCourseDetail = () => {
-    const [loader, setLoader] = useState(false);
     const courseDetail = useLoaderData();
     console.log(courseDetail);
 
-    const downloadPDF = () => {
-        const capture = document.querySelector('.actual-recipt')
-        setLoader(true);
-        html2canvas(capture)
-            .then((canvas) => {
-                const imgData = canvas.toDataURL('img/png');
-                const doc = new jsPDF('p', 'mm', 'a2');
-                const componentWidth = doc.internal.pageSize.getWidth();
-                const componentHeight = doc.internal.pageSize.getHeight();
-                doc.addImage(imgData, '', 0, 0, componentWidth, componentHeight);
-                setLoader(false);
-                doc.save('Authoi_Education.pdf')
-            })
-    }
+    const options = {
+        filename: "Authoi_Education.pdf",
+        page: {
+          margin: 20
+        }
+      };
+
+    const getTargetElement = () => document.getElementById("pdf-page");
+
+    const downloadPdf = () => generatePDF(getTargetElement, options);
 
     return (
-        <div className='container mt-20 scrollbar-hide'>
+        <div className='container mt-20 scrollbar-hide' id='pdf-page'>
             <div className="navbar bg-base-100 d-flex justify-content-between">
                 <h1 className="btn-ghost normal-case text-5xl">{courseDetail.title}</h1>
-                <h3><Button variant='outline-danger' onClick={downloadPDF} disabled={!(loader === false)}>
-                    {
-                        loader ? (
-                            <span>Downloading</span>
-                        ) : (<span>Download</span>)}
+                <h3><Button variant='outline-danger' onClick={downloadPdf}>
+                    Download PDF
                 </Button></h3>
             </div>
             <hr />
@@ -44,10 +35,8 @@ const SingleCourseDetail = () => {
                     <p className='py-3 text-lg'>Learn {courseDetail.title} by video. In video our teachers teach you coding directly.After learning you should know basics of previous courses</p>
                 </div>
             </div>
-            <div className='actual-recipt'>
+            <div>
                 <div>
-                    <h1 className="btn-ghost normal-case text-5xl">{courseDetail.title}</h1>
-                    <hr />
                     <h2 className='py-3 text-4xl'>What is {courseDetail.title}</h2>
                     <p className='py-3 text-2xl'>{courseDetail.introductoryDscription}</p>
                 </div>
@@ -89,7 +78,7 @@ const SingleCourseDetail = () => {
                 </div>
             </div>
             <button className="btn btn-outline-success" type="button">
-                <Link className='position-relative' to={`checkout/${courseDetail.id}`}>Get Premium Access
+                <Link className='position-relative' to={`/checkout/${courseDetail.id}`}>Get Premium Access
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                     <MdWorkspacePremium></MdWorkspacePremium>
                 </span></Link></button>

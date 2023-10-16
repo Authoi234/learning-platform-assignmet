@@ -11,7 +11,6 @@ const PrivateRoute = ({ children }) => {
     if (loading) {
         return <div style={{ textAlign: 'center', fontSize: '30px ' }}>
             <Spinner animation="border" variant="danger" />
-            <Spinner animation="grow" variant="danger" />
         </div>
     }
     if (!user) {

@@ -40,7 +40,7 @@ function App() {
           element: <Register></Register>
         },
         {
-          path: 'checkout/:id',
+          path: '/checkout/:id',
           element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
           loader: ({params}) => fetch(`https://learning-platform-server-assignment-gh9vsm4df.vercel.app/courses/${params.id}`)
         }
