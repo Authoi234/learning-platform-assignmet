@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Container, FloatingLabel, Form, Toast } from 'react-bootstrap';
+import { Container, FloatingLabel, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 

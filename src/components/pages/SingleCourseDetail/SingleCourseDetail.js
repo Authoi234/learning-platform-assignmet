@@ -2,7 +2,8 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import { MdWorkspacePremium } from "react-icons/md";
 
 const SingleCourseDetail = () => {
     const [loader, setLoader] = useState(false);
@@ -87,6 +88,11 @@ const SingleCourseDetail = () => {
                     </div>
                 </div>
             </div>
+            <button className="btn btn-outline-success" type="button">
+                <Link className='position-relative' to={`checkout/${courseDetail.id}`}>Get Premium Access
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    <MdWorkspacePremium></MdWorkspacePremium>
+                </span></Link></button>
         </div>
     );
 };

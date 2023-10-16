@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Container, FloatingLabel, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
@@ -9,7 +9,13 @@ const Login = () => {
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
 
-    const { loginWithProvider, logIn } = useContext(AuthContext);
+    const { loginWithProvider, setLoading, logIn } = useContext(AuthContext);
+    
+    const location = useLocation();
+
+    const navigate = useNavigate('/')
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleGoogleSignIn = (event) => {
         event.preventDefault();
@@ -17,9 +23,12 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-
+                if (user.uid) {
+                    navigate(from, { replace: true })
+                }
             })
             .catch(error => console.error(error))
+            .finally(() => setLoading(false))
     }
 
     const handleGithubSignIn = (event) => {
@@ -67,14 +76,14 @@ const Login = () => {
                                     label="Email address"
                                     className="mb-3"
                                 >
-                                    <Form.Control type="email" name='email' placeholder="Please Enter Your Email" required/>
+                                    <Form.Control type="email" name='email' placeholder="Please Enter Your Email" required />
                                 </FloatingLabel>
                                 <FloatingLabel
                                     controlId="floatingInput"
                                     label="Password"
                                     className="mb-3"
                                 >
-                                    <Form.Control type="Password" name='password' placeholder="Please Enter Your Password" required/>
+                                    <Form.Control type="Password" name='password' placeholder="Please Enter Your Password" required />
                                 </FloatingLabel>
                             </div>
                             <Form.Text>
