@@ -1,8 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { Container, FloatingLabel, Form } from 'react-bootstrap';
+import { Container, FloatingLabel, Form, Toast } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
-import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const [error, setError] = useState('');
@@ -19,15 +18,15 @@ const Register = () => {
         const name = form.name.value;
         const photoURL = form.photoURL.value;
         console.log(password, name, photoURL, email);
-        
+
         createUser(email, password)
-        .then(res => {
+            .then(res => {
                 handleUpdateUserProfile(name, photoURL);
                 const user = res.user;
                 console.log(user);
                 setError('');
                 form.reset();
-                navigate('/')
+                navigate('/');
             })
             .catch(e => {
                 setError(e.message);
@@ -40,9 +39,9 @@ const Register = () => {
             displayName: name,
             photoURL: photoURL
         }
-        
+
         updateUserProfile(profile)
-            .then(() => {console.log()})
+            .then(() => { console.log() })
             .catch((err) => console.error(err))
     }
 
