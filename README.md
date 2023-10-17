@@ -1,6 +1,6 @@
 # Authoi Education
 
-# Live Demo Link
+# Live Site Link
 [https://learning-platform-assignmemt.web.app/]
 
 ## Features
