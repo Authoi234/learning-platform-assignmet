@@ -1,6 +1,31 @@
-# Getting Started with Create React App
+# Authoi Education
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Live Demo Link
+[https://learning-platform-assignmemt.web.app/]
+
+## Features
+
+#### This is a fully responsive website
+#### In this Website I teach Some Programming languages
+#### You can easily authenticate in this project
+#### This project use many famous and secure libraries
+#### This is a comfortable website
+#### You can download PDF of course detail page
+#### This project have Its Own server
+
+## In this project, I use
+
+#### React-to-PDF
+#### Firebase
+#### Recharts
+#### DaisyUi
+#### Tailwind
+#### Bootstrap
+#### React Bootstrap
+#### React-icons
+#### React-Router-Dom
+
+
 
 ## Available Scripts
 
