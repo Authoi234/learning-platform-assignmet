@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
 import { MdWorkspacePremium } from "react-icons/md";
 import generatePDF from "react-to-pdf";
+import { FaDownload } from "react-icons/fa6";
 
 const SingleCourseDetail = () => {
     const courseDetail = useLoaderData();
@@ -23,7 +24,8 @@ const SingleCourseDetail = () => {
         <div className='container mt-20 scrollbar-hide' id='pdf-page'>
             <div className="navbar bg-base-100 d-flex justify-content-between">
                 <h1 className="btn-ghost normal-case text-5xl">{courseDetail.title}</h1>
-                <h3><Button variant='outline-danger' onClick={downloadPdf}>
+                <h3><Button variant='outline-danger' className='d-flex ' onClick={downloadPdf}>
+                    <FaDownload className='fs-5'></FaDownload>
                     Download PDF
                 </Button></h3>
             </div>
@@ -58,7 +60,7 @@ const SingleCourseDetail = () => {
                     </div>
                     <div>
                         <span className='badge badge-primary'>OUTPUT</span>
-                        <div className='w-full h-full p-3 bg-white shadow-lg block'>
+                        <div className='w-full h-full p-3 bg-white shadow-2xl block'>
                             <h1>Hello World !</h1>
                         </div>
                     </div>

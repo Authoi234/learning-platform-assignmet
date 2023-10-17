@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, Container, Nav,  Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaUserLarge } from "react-icons/fa6";
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
@@ -8,12 +8,17 @@ const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
     const handleLogOut = () => {
         logOut()
-        .then(() => {})
-        .catch(e => console.log(e))
+            .then(() => { })
+            .catch(e => console.log(e))
     }
+    const renderTooltip = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+            {user.displayName}
+        </Tooltip>
+    );
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" style={{backdropFilter: 'blur(20px)'}} bg='light' className="h-20 bg-transparent fixed-top">
+            <Navbar collapseOnSelect expand="lg" style={{ backdropFilter: 'blur(20px)' }} bg='light' className="h-20 bg-transparent fixed-top">
                 <Container>
                     <img width={'8%'} src={require('../../../assets/download1.png')} fluid alt='' />
                     <Navbar.Brand href="https://learning-platform-assignmemt.web.app/" className='text-black fw-bold'>Authoi Education</Navbar.Brand>
@@ -26,9 +31,9 @@ const NavBar = () => {
                         </Nav>
                         <Nav>
                             {
-                                user ? <p className='d-flex align-items-center'>{user?.photoURL ? <img className='w-10' src={user.photoURL} alt=''/> : <FaUserLarge></FaUserLarge>}  <Button onClick={handleLogOut} variant='outline-danger' className='fw-bold'>Log Out</Button></p> : <Button variant='outline-danger' href='/login' className='border d-flex text-primary fs-6 px-5 align-items-center'>Login</Button>
-                            }
-                        </Nav>
+                                user ? <p className='d-flex align-items-center'>{user?.photoURL ? <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderTooltip}><img className='w-10' src={user.photoURL} alt='' /></OverlayTrigger> : <FaUserLarge></FaUserLarge>}  <Button onClick={handleLogOut} variant='outline-danger' className='fw-bold'>Log Out</Button></p> : <Button variant='outline-danger' href='/login' className='border d-flex text-primary fs-6 px-5 align-items-center'>Login</Button>
+                                }
+                                </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

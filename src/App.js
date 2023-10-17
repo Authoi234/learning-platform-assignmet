@@ -25,12 +25,12 @@ function App() {
         {
           path: '/courses',
           element: <Courses></Courses>,
-          loader: () => fetch('https://learning-platform-server-assignment-gh9vsm4df.vercel.app/courses')
+          loader: () => fetch(' https://learning-platform-server-assignment-k0291lyyj.vercel.app/courses')
         },
         {
           path: '/courses/:id',
           element: <SingleCourseDetail></SingleCourseDetail>,
-          loader: ({params}) => fetch(`https://learning-platform-server-assignment-gh9vsm4df.vercel.app/courses/${params.id}`)
+          loader: ({params}) => fetch(`https://learning-platform-server-assignment-k0291lyyj.vercel.app/courses/${params.id}`)
         },
         {
           path: '/login',
@@ -47,7 +47,7 @@ function App() {
         {
           path: '/checkout/:id',
           element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
-          loader: ({params}) => fetch(`https://learning-platform-server-assignment-gh9vsm4df.vercel.app/courses/${params.id}`)
+          loader: ({params}) => fetch(`https://learning-platform-server-assignment-k0291lyyj.vercel.app/courses/${params.id}`)
         },
         {
           path: '*',
