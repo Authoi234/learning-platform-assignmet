@@ -44,7 +44,7 @@ const NavBar = () => {
                         </Nav>
                         <Nav>
                             <div>
-                                <button className="btn mx-3" type="button" onClick={toogleTheme}>{theme === 'Dark' ? <FaSun className='fs-4'></FaSun> : <FaMoon className='fs-4'></FaMoon>}</button>
+                                <button className="btn mx-3" type="button" onClick={toogleTheme}>{theme === 'Light' ? <FaSun className='fs-4 hover:animate-spin'></FaSun> : <FaMoon className='fs-4'></FaMoon>}</button>
                             </div>
                             {
                                 user ? <p className='d-flex align-items-center'>{user?.photoURL ? <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderTooltip}><img className='w-10' src={user.photoURL} alt='' /></OverlayTrigger> : <FaUserLarge></FaUserLarge>}  <Button onClick={handleLogOut} variant='outline-danger' className='fw-bold'>Log Out</Button></p> : <Button variant='outline-danger' href='/login' className='border d-flex text-primary fs-6 px-5 align-items-center'>Login</Button>
