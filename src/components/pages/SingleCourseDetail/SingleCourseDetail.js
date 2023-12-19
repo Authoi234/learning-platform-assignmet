@@ -70,7 +70,7 @@ const SingleCourseDetail = () => {
                         <h2 className='py-4 text-4xl'>What is the History of {courseDetail.title}</h2>
                         <p className='py-3 text-2xl'>{courseDetail.history}</p>
                     </div>
-                    <div className="hero h-full bg-base-200">
+                    <div className="hero h-full bg-red-600">
                         <div className="hero-content flex-col lg:flex-row-reverse">
                             <img src={courseDetail.creator} className="w-1/5 rounded-lg shadow-2xl" alt='' />
                             <div>
