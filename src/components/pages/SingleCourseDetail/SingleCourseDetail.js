@@ -22,7 +22,7 @@ const SingleCourseDetail = () => {
 
     return (
         <div className='container mt-20 scrollbar-hide' id='pdf-page'>
-            <div className="navbar bg-base-100 d-flex justify-content-between">
+            <div className="navbar d-flex justify-content-between">
                 <h1 className="btn-ghost normal-case text-5xl">{courseDetail.title}</h1>
                 <h3><Button variant='outline-danger' className='d-flex ' onClick={downloadPdf}>
                     <FaDownload className='fs-5'></FaDownload>
